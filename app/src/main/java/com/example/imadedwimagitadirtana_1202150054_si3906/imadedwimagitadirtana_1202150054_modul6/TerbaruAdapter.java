@@ -53,6 +53,7 @@ public class TerbaruAdapter extends RecyclerView.Adapter<TerbaruAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
+            //inisialisasi
             recentUsername = itemView.findViewById(R.id.popularUsername);
             recentPhotoTitle = itemView.findViewById(R.id.popularPhotoTitle);
             recentPhotoDesc = itemView.findViewById(R.id.popularPhotoDesc);
@@ -69,6 +70,7 @@ public class TerbaruAdapter extends RecyclerView.Adapter<TerbaruAdapter.ViewHold
             String desc = post.getPhotoDesc();
             String photoUrl = post.getPhoto();
             String userpost = post.getUsername();
+            //untuk memberikan intent ke aktivitas lain
 
             Intent intent = new Intent(context, DetailActivity.class);
             intent.putExtra("userpost",userpost);

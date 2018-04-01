@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyPhotoFragment extends Fragment {
-
+//deklarasi
     RecyclerView myRecycler;
     MyAdapter adapter;
     List<Post> posts;

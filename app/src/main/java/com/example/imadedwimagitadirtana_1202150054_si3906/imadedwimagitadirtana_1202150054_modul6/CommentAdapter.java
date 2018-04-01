@@ -13,12 +13,12 @@ import java.util.List;
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
     Context context;
     List<Comment> comments;
-
+// adapter untuk array komentar
     public CommentAdapter(Context context, List<Comment> comments) {
         this.context = context;
         this.comments = comments;
     }
-
+//view holder untuk menampilkan data comment
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -26,7 +26,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         return new ViewHolder(itemView);
     }
-
+// menset data pada layout comment_item
     @Override
     public void onBindViewHolder(CommentAdapter.ViewHolder holder, int position) {
         Comment comment = comments.get(position);

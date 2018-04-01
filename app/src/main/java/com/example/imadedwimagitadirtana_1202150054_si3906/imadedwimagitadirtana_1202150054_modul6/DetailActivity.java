@@ -54,7 +54,7 @@ public class DetailActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         userEmail = user.getEmail();
         username = userEmail.substring(0, userEmail.indexOf("@"));
-
+//jika terdapat intent
         if (getIntent() != null) {
             detailUsername.setText(getIntent().getStringExtra("userpost"));
             detailTitle.setText(getIntent().getStringExtra("title"));
@@ -64,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
 
             Picasso.get().load(getIntent().getStringExtra("photo")).into(detailPhoto);
         }
-
+//array data comment
         comments = new ArrayList<>();
 
         recyclerComment.setLayoutManager(new LinearLayoutManager(DetailActivity.this));
@@ -79,6 +79,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
     }
+// melakukan inisialisasi pada textview dan lain sebagainya dari layout
 
     private void referencing() {
         detailUsername = findViewById(R.id.detailUsername);
@@ -91,6 +92,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     public class PostComment extends AsyncTask<Void, String, Void> {
+//untuk mendapatkan data dari database yang dilakukan pada background task
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -119,12 +121,13 @@ public class DetailActivity extends AppCompatActivity {
 
         DatabaseReference databaseReference;
         CommentAdapter adapter;
-
+//untuk mendapatkan data dari database yang dilakukan pada background task
         @Override
         protected Void doInBackground(Void... voids) {
             comments.clear();
             databaseReference = FirebaseDatabase.getInstance().getReference("comments");
             databaseReference.addValueEventListener(new ValueEventListener() {
+                //mengubah data yang ada pada layout jika sudah berhasil mereferensi dari database
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -133,11 +136,11 @@ public class DetailActivity extends AppCompatActivity {
                             comments.add(comment);
                         }
                     }
-
+//intent ke detail activity bagian comment
                     adapter = new CommentAdapter(DetailActivity.this, comments);
                     recyclerComment.setAdapter(adapter);
                 }
-
+//jika database error
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 

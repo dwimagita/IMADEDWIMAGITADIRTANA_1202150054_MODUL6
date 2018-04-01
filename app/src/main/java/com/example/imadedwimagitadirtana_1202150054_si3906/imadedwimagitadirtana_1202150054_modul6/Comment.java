@@ -1,6 +1,7 @@
 package com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6;
 
 
+// class setter dan getter
 public class Comment {
     String postId;
     String username;

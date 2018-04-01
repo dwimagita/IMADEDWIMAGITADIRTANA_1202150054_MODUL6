@@ -1,6 +1,6 @@
 package com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6;
 
-
+//class setter getter untuk post
 public class Post {
    private String postId;
     private String username;
