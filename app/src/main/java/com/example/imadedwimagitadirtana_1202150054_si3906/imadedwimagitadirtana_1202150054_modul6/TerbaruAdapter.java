@@ -9,13 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
-public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
+/**
+ * Created by Yuda on 30/03/2018.
+ */
+
+public class TerbaruAdapter extends RecyclerView.Adapter<TerbaruAdapter.ViewHolder> {
     Context context;
     List<Post> posts;
 
-    public PopularAdapter(Context context, List<Post> posts) {
+    public TerbaruAdapter(Context context, List<Post> posts) {
         this.context = context;
         this.posts = posts;
     }
@@ -34,6 +40,8 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
         holder.recentUsername.setText(post.getUsername());
         holder.recentPhotoTitle.setText(post.getPhotoTitle());
         holder.recentPhotoDesc.setText(post.getPhotoDesc());
+
+        Picasso.get().load(post.getPhoto()).into(holder.recentPhoto);
     }
 
     @Override
@@ -57,7 +65,18 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent();
+            int position = getLayoutPosition();
+            Post post = posts.get(position);
+            String postId = post.getPostId();
+            String title = post.getPhotoTitle();
+            String desc = post.getPhotoDesc();
+            String photoUrl = post.getPhoto();
+
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("title", title);
+            intent.putExtra("desc", desc);
+            intent.putExtra("photo", photoUrl);
+            intent.putExtra("id", postId);
             context.startActivity(intent);
         }
     }

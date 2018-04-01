@@ -20,7 +20,7 @@ import java.util.List;
 public class RecentFragment extends Fragment {
 
     RecyclerView recentRecycler;
-    PopularAdapter adapter;
+    TerbaruAdapter adapter;
     List<Post> posts;
 
     DatabaseReference databaseReference;
@@ -52,7 +52,7 @@ public class RecentFragment extends Fragment {
                     posts.add(post);
                 }
 
-                adapter = new PopularAdapter(getActivity(), posts);
+                adapter = new TerbaruAdapter(getActivity(), posts);
                 recentRecycler.setAdapter(adapter);
             }
 

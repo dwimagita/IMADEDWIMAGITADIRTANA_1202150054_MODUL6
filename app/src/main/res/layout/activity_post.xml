@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.intel.yudanto_1202150097_modul6.PostActivity">
+    tools:context="com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6.PostActivity">
 
     <ScrollView
         android:layout_width="0dp"

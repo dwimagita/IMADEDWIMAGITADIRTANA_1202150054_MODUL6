@@ -1,11 +1,23 @@
 package com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6;
 
+/**
+ * Created by Yuda on 31/03/2018.
+ */
 
 public class Post {
+   private String postId;
     private String username;
     private String photo;
     private String photoTitle;
     private String photoDesc;
+
+    public String getPostId() {
+        return postId;
+    }
+
+    public void setPostId(String postId) {
+        this.postId = postId;
+    }
 
     public String getUsername() {
         return username;

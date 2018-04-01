@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/popularUsername"
+            android:id="@+id/myUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -26,40 +26,40 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/popularPhoto"
+            android:id="@+id/myPhoto"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/popularUsername"
+            app:layout_constraintTop_toBottomOf="@+id/myUsername"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
         <TextView
-            android:id="@+id/popularPhotoTitle"
+            android:id="@+id/myPhotoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
             android:text="photoTitle"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="@+id/popularPhoto"
+            app:layout_constraintEnd_toEndOf="@+id/myPhoto"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/popularPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/popularPhoto" />
+            app:layout_constraintStart_toStartOf="@+id/myPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/myPhoto" />
 
         <TextView
-            android:id="@+id/popularPhotoDesc"
+            android:id="@+id/myPhotoDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="photoDesc"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="@+id/popularPhoto"
+            app:layout_constraintEnd_toEndOf="@+id/myPhoto"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/popularPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/popularPhotoTitle" />
+            app:layout_constraintStart_toStartOf="@+id/myPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/myPhotoTitle" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

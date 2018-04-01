@@ -46,7 +46,6 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Home.this, PostActivity.class);
-                intent.putExtra("username", userName);
                 startActivity(intent);
             }
         });
@@ -57,8 +56,8 @@ public class Home extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new RecentFragment(), "Popular");
-        adapter.addFragment(new MyPhotoFragment(), "My Photos");
+        adapter.addFragment(new RecentFragment(), "Terbaru");
+        adapter.addFragment(new MyPhotoFragment(), "Foto Saya");
         viewPager.setAdapter(adapter);
     }
 

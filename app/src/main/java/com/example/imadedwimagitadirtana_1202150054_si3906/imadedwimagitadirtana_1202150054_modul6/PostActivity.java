@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,6 +42,13 @@ public class PostActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private Uri filePath;
 
+    FirebaseUser user;
+    // dari firebase
+    String userEmail;
+
+    // yang bakal dikirim
+    String username, title, desc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +63,10 @@ public class PostActivity extends AppCompatActivity {
         postPhoto = findViewById(R.id.postPhoto);
         btnChoose = findViewById(R.id.buttonChoose);
         fabAddPost = findViewById(R.id.fabAddPost);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        userEmail = user.getEmail();
+        username = userEmail.substring(0, userEmail.indexOf("@"));
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,40 +89,33 @@ public class PostActivity extends AppCompatActivity {
 
     private void uploadPost() {
         if (filePath != null) {
-            String username = "";
-            if (getIntent() != null) {
-                username = getIntent().getStringExtra("username");
-            }
-
             final ProgressDialog progressDialog = new ProgressDialog(PostActivity.this);
-            progressDialog.setTitle("Uploading");
+            progressDialog.setTitle("Upload Post");
             progressDialog.show();
 
-            long millis = System.currentTimeMillis() % 1000;
-
-            String title = postTitle.getText().toString();
-            String desc = postDesc.getText().toString();
-            String image = "images/"+ username +"_"+ millis +".jpg";
+            title = postTitle.getText().toString();
+            desc = postDesc.getText().toString();
 
             // database
-            DatabaseReference database = FirebaseDatabase.getInstance().getReference("posts");
-
-            String postId = database.push().getKey();
-
-            Post post = new Post();
-            post.setUsername(username);
-            post.setPhoto(image);
-            post.setPhotoTitle(title);
-            post.setPhotoDesc(desc);
-
-            database.child(postId).setValue(post);
+            final DatabaseReference database = FirebaseDatabase.getInstance().getReference("posts");
 
             // storage
-            StorageReference riversRef = storageReference.child(image);
+            StorageReference riversRef = storageReference.child("image").child(filePath.getLastPathSegment());
             riversRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            final Uri downloadUri = taskSnapshot.getDownloadUrl();
+                            String postId = database.push().getKey();
+
+                            Post post = new Post();
+                            post.setPostId(postId);
+                            post.setUsername(username);
+                            post.setPhoto(downloadUri.toString());
+                            post.setPhotoTitle(title);
+                            post.setPhotoDesc(desc);
+
+                            database.child(postId).setValue(post);
                             progressDialog.dismiss();
 
                             Toast.makeText(getApplicationContext(),
