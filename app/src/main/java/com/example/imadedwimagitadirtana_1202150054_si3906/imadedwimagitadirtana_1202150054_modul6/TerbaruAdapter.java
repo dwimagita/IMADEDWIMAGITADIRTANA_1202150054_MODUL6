@@ -13,9 +13,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by Yuda on 30/03/2018.
- */
 
 public class TerbaruAdapter extends RecyclerView.Adapter<TerbaruAdapter.ViewHolder> {
     Context context;

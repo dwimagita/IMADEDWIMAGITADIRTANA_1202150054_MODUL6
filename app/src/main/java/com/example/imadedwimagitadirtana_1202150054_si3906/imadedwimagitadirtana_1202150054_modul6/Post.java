@@ -1,8 +1,5 @@
 package com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6;
 
-/**
- * Created by Yuda on 31/03/2018.
- */
 
 public class Post {
    private String postId;

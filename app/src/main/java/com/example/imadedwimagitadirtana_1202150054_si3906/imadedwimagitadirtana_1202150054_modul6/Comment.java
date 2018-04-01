@@ -1,8 +1,5 @@
 package com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6;
 
-/**
- * Created by Intel on 01/04/2018.
- */
 
 public class Comment {
     String postId;
