@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "31638314009",
+    "firebase_url": "https://imadedwimagitadirtana-modul6.firebaseio.com",
+    "project_id": "imadedwimagitadirtana-modul6",
+    "storage_bucket": "imadedwimagitadirtana-modul6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31638314009:android:0e326cfc61e329eb",
+        "android_client_info": {
+          "package_name": "com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31638314009-70ig5ch1vpu1o57293uvv5pso3k7697g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.imadedwimagitadirtana_1202150054_si3906.imadedwimagitadirtana_1202150054_modul6",
+            "certificate_hash": "4c2d5466dda46cb0e23e6a50f945259ad298a255"
+          }
+        },
+        {
+          "client_id": "31638314009-gg26vsjca9j05e0u9abc393md4sttvlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx85IOwihSgL7uCrrUjVnp3U2ALlGALow"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31638314009-gg26vsjca9j05e0u9abc393md4sttvlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
