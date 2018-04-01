@@ -24,13 +24,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
-
+//inisialisasi
     TextView detailUsername, detailTitle, detailDesc;
     ImageView detailPhoto;
     EditText detailComment;
     Button buttonComment;
-
+//recyclerview inisialisasi
     RecyclerView recyclerComment;
+    //arraylist
     List<Comment> comments;
 
     DatabaseReference database;
@@ -55,7 +56,7 @@ public class DetailActivity extends AppCompatActivity {
         username = userEmail.substring(0, userEmail.indexOf("@"));
 
         if (getIntent() != null) {
-            detailUsername.setText(username);
+            detailUsername.setText(getIntent().getStringExtra("userpost"));
             detailTitle.setText(getIntent().getStringExtra("title"));
             detailDesc.setText(getIntent().getStringExtra("desc"));
 

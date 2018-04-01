@@ -29,7 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         return new ViewHolder(itemView);
     }
-
+//method untuk mendapatkan
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
         Post post = posts.get(position);
@@ -46,9 +46,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        //melakukan inisialisasi
         TextView myUsername, myPhotoDesc, myPhotoTitle;
         ImageView myPhoto;
-
+//untuk menaruh data sesuai yang diinginkan
         public ViewHolder(View itemView) {
             super(itemView);
             myUsername = itemView.findViewById(R.id.myUsername);
@@ -61,13 +63,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         @Override
         public void onClick(View view) {
             int position = getLayoutPosition();
+
             Post post = posts.get(position);
             String postId = post.getPostId();
             String title = post.getPhotoTitle();
             String desc = post.getPhotoDesc();
             String photoUrl = post.getPhoto();
+            String userpost = post.getUsername();
 
+            //untuk memberikan intent ke aktivitas lain
             Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("userpost", userpost);
             intent.putExtra("title", title);
             intent.putExtra("desc", desc);
             intent.putExtra("photo", photoUrl);

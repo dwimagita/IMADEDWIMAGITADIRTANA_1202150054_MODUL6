@@ -68,8 +68,10 @@ public class TerbaruAdapter extends RecyclerView.Adapter<TerbaruAdapter.ViewHold
             String title = post.getPhotoTitle();
             String desc = post.getPhotoDesc();
             String photoUrl = post.getPhoto();
+            String userpost = post.getUsername();
 
             Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("userpost",userpost);
             intent.putExtra("title", title);
             intent.putExtra("desc", desc);
             intent.putExtra("photo", photoUrl);
